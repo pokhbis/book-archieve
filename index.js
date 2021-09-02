@@ -17,6 +17,16 @@ const loadSearch = () => {
         // .catch(error => displayError(error))
     }
 
+    //Fatching API link again to show total book found through search
+    const url = `https://openlibrary.org/search.json?q=${searchFieldText}`;
+    fetch(url)
+        .then(res => res.json())
+        .then(data => totalBookNumber(data))
+}
+//Displaying Searched Book Number
+const totalBookNumber = allBooks => {
+    const totalBooks = document.getElementById('total-books');
+    totalBooks.innerHTML = `<h4>Total Book Found: ${allBooks.numFound}</h4>`;
 }
 
 const displaySearch = books => {
@@ -26,13 +36,15 @@ const displaySearch = books => {
     const displayField = document.getElementById('book-list');
     displayField.textContent = '';
     books?.forEach(book => {
+        console.log(book)
+
         const div = document.createElement('div');
         div.innerHTML = `
         <div>
        <div class="card mb-5">
                     <img  src="https://covers.openlibrary.org/b/id/${book.cover_i ? book.cover_i : 'Not Available'}-M.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h4 class="card-title">Book Name: ${book.subject[0]}</h4>
+                        <h4 class="card-title">Book Name: ${book.subject[0] ? book.subject[0] : 'Not Available'}</h4>
                         <p class="card-text">Author: ${book.author_name[0] ? book.author_name[0] : 'Not Available'}</p>
                         <p class="card-text">Publisher: ${book.publisher[0] ? book.publisher[0] : 'Not Available'}</p>
 
