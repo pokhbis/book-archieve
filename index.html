@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Dictionary</title>
+    <!-- custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Bootstrap css -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+</head>
+
+<body>
+    <!----------------------------- Head-Line --------------------------->
+    <h1 class="text-center mt-5"> Search To Know About<span class="text-info"> Your Favourite Book!</span></h1>
+
+    <!---------------------------Search field --------------------------->
+    <div class="input-group mb-3 w-75 mx-auto mt-3 mb-3">
+        <input id="input-field" type="text" class="form-control" placeholder="Enter Book Name"
+            aria-label="Recipient's username" aria-describedby="button-addon2">
+        <button onclick="loadSearch()" class="btn btn-outline-success" type="button" id="search-button">Search</button>
+    </div>
+    <!--Invalid  Search Message -->
+    <div>
+        <h4 id="error-message" class="text-danger text-center"> No Result Found !</h4>
+    </div>
+    <!-- Empty Input Alert -->
+    <div id="empty-input">
+        <h4 class="text-danger text-center">Search Field Empty. Please Wrirte Book Name And Then Search! </h4>`;
+    </div>
+
+
+
+    <!----------------------- Total Number of Book Found --------------------->
+    <div id="total-books">
+
+    </div>
+
+
+    <!--------------------------- Display Field ---------------------------->
+    <div class="container">
+        <div id="book-list" class="row row-cols-1 row-cols-md-3 g-4 h-100">
+
+        </div>
+        <!---------------------------- cover image ----------------->
+        <div id="image">
+
+        </div>
+    </div>
+
+
+
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+        crossorigin="anonymous"></script>
+    <!-- custom JavaScript -->
+    <script src="index.js"></script>
+</body>
+
+</html>
