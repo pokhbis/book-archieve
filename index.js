@@ -5,9 +5,9 @@ const loadSearch = () => {
     const searchFieldText = searchField.value;
     searchField.value = '';
     document.getElementById('error-message').style.display = 'none';
+    //for empty input
     if (searchFieldText === '') {
         document.getElementById('empty-input').style.display = 'block';
-
     }
     else {
         const url = `https://openlibrary.org/search.json?q=${searchFieldText}`;
@@ -28,16 +28,12 @@ const totalBookNumber = allBooks => {
     const totalBooks = document.getElementById('total-books');
     totalBooks.innerHTML = `<h4>Total Book Found: ${allBooks.numFound}</h4>`;
 }
-
+//Displaying Search Results
 const displaySearch = books => {
-
-    // removePreviousResult('none');
     document.getElementById('empty-input').style.display = 'none';
     const displayField = document.getElementById('book-list');
     displayField.textContent = '';
     books?.forEach(book => {
-        console.log(book)
-
         const div = document.createElement('div');
         div.innerHTML = `
         <div>
@@ -47,17 +43,13 @@ const displaySearch = books => {
                         <h4 class="card-title">Book Name: ${book.subject[0] ? book.subject[0] : 'Not Available'}</h4>
                         <p class="card-text">Author: ${book.author_name[0] ? book.author_name[0] : 'Not Available'}</p>
                         <p class="card-text">Publisher: ${book.publisher[0] ? book.publisher[0] : 'Not Available'}</p>
-
                     </div>
                     <div class="card-footer">
                         <small>Publishing Year: ${book.first_publish_year ? book.first_publish_year : 'Not Available'}</small>
                     </div>
                 </div>
-                 </div> 
-                
+             </div>       
 `;
-        div.classList.add('grid-style');
         displayField.appendChild(div);
     })
-
 }
